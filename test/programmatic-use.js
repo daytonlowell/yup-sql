@@ -1,6 +1,6 @@
-const joiSql = require('../index.js')
+const yupSql = require('../index.js')
 
-joiSql({
+yupSql({
 	schema: 'pwner',
 	table: 'project',
 }).then(result => {
