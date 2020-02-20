@@ -245,8 +245,8 @@ module.exports = [{
 	numericPrecision: null,
 	numericScale: null,
 	characterMaximumLength: 65535,
-	isNullable: 'YES',
-	columnDefault: '',
+	isNullable: 'NO',
+	columnDefault: null,
 },
 {
 	columnName: 'version',

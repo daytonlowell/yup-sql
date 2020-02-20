@@ -46,12 +46,20 @@ const checks = [
 		then: `.date()`,
 	}),
 
-	stringCheck = column => ifValThen({
-		column,
-		property: `dataType`,
-		value: stringTypes,
-		then: `.string().max(${column.characterMaximumLength})`,
-	}),
+	stringCheck = column => {
+		let value = ifValThen({
+			column,
+			property: `dataType`,
+			value: stringTypes,
+			then: `.string().max(${column.characterMaximumLength})`,
+		})
+
+		if (stringTypes.includes(column.dataType) && column.isNullable === 'NO' && column.columnDefault === null) {
+			value += `.ensure()`
+		}
+
+		return value
+	},
 
 	boolCheck = column => (column.dataType === `bit` && column.numericPrecision == `1`) ? `.boolean()` : ``,
 
