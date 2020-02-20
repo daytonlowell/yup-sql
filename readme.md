@@ -12,6 +12,8 @@ npm install yup-sql
 
 (`npm install -g yup-sql` if you want to use it from the command-line)
 
+This is a straight fork of [joi-sql](https://github.com/TehShrike/joi-sql)
+
 ## Usage
 
 ### CLI
