@@ -4,6 +4,8 @@ Point it at your local database, and it spits out a [Yup](https://github.com/jqu
 
 [![Build Status](https://travis-ci.org/daytonlowell/yup-sql.svg?branch=master)](https://travis-ci.org/daytonlowell/yup-sql)
 
+This is a straight fork of [joi-sql](https://github.com/TehShrike/joi-sql)
+
 ## Install
 
 ```sh
@@ -11,8 +13,6 @@ npm install yup-sql
 ```
 
 (`npm install -g yup-sql` if you want to use it from the command-line)
-
-This is a straight fork of [joi-sql](https://github.com/TehShrike/joi-sql)
 
 ## Usage
 
