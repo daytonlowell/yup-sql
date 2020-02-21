@@ -267,4 +267,14 @@ module.exports = [{
 	characterMaximumLength: null,
 	isNullable: 'NO',
 	columnDefault: null,
+},
+{
+	columnName: 'is_finished',
+	dataType: 'enum',
+	columnType: `enum('False','True')`,
+	numericPrecision: null,
+	numericScale: null,
+	characterMaximumLength: null,
+	isNullable: 'NO',
+	columnDefault: null,
 }]

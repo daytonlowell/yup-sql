@@ -72,7 +72,7 @@ const checks = [
 
 	enumCheck = column => {
 		if (column.dataType === `enum`) {
-			return `.oneOf((${unrollEnum(column)})`
+			return `.string().oneOf([${unrollEnum(column)}])`
 		}
 		return ``
 	},
@@ -94,6 +94,7 @@ const checks = [
 
 			return `.default(${column.columnDefault})`
 		}
+		return ``
 	},
 ]
 

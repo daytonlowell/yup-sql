@@ -32,9 +32,10 @@ const expected = `yup.object({
 	followUpDate: yup.date().nullable(true),
 	notes: yup.string().max(65535).ensure().nullable(false),
 	version: yup.number().integer().positive().max(4294967295).nullable(false).default(1),
-	updatedAt: yup.date().nullable(false)
+	updatedAt: yup.date().nullable(false),
+	isFinished: yup.string().oneOf(['False','True']).nullable(false)
 })`
 
-console.log(actual)
+console.log(actual, expected)
 
 assert.equal(actual, expected)
