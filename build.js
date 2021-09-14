@@ -70,6 +70,13 @@ const checks = [
 		then: `.number().lessThan(${decimalLessThan(column.numericPrecision - column.numericScale)})`,
 	}),
 
+	floatOrDoubleCheck = column => ifValThen({
+		column,
+		property: `dataType`,
+		value: [ 'float', 'double' ],
+		then: `.number()`,
+	}),
+
 	enumCheck = column => {
 		if (column.dataType === `enum`) {
 			return `.string().oneOf([${unrollEnum(column)}])`

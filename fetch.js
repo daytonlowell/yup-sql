@@ -1,5 +1,6 @@
 const q = require(`sql-concat`)
 const camelcaseKeys = require(`camelcase-keys`)
+const mysql = require('mysql')
 
 const informationSchemaColumns = [
 	`COLUMN_NAME`,
@@ -21,7 +22,8 @@ module.exports = (db, { schema, table }) => {
 		if (table) {
 			query = query.where(`TABLE_NAME`, table)
 		}
-		console.log(query.build())
+		//const { sql, values } = query.build()
+		//console.log(mysql.format(sql, values))
 		db.query(query.build(), (err, columns) => {
 			if (err) {
 				reject(err)
