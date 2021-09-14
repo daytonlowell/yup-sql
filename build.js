@@ -67,7 +67,7 @@ const checks = [
 		column,
 		property: `dataType`,
 		value: `decimal`,
-		then: `.number().precision(${column.numericScale}).lessThan(${decimalLessThan(column.numericPrecision - column.numericScale)})`,
+		then: `.number().lessThan(${decimalLessThan(column.numericPrecision - column.numericScale)})`,
 	}),
 
 	enumCheck = column => {
