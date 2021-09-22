@@ -57,7 +57,7 @@ module.exports = [
 		numericScale: null,
 		characterMaximumLength: null,
 		isNullable: 'NO',
-		columnDefault: 1,
+		columnDefault: `b'1'`,
 	},
 	{
 		columnName: 'printing_project',
@@ -67,7 +67,7 @@ module.exports = [
 		numericScale: null,
 		characterMaximumLength: null,
 		isNullable: 'NO',
-		columnDefault: 1,
+		columnDefault: `b'1'`,
 	},
 	{
 		columnName: 'active_project_state_id',
@@ -97,7 +97,7 @@ module.exports = [
 		numericScale: null,
 		characterMaximumLength: null,
 		isNullable: 'NO',
-		columnDefault: 0,
+		columnDefault: `b'0'`,
 	},
 	{
 		columnName: 'done_date',
@@ -258,6 +258,16 @@ module.exports = [
 		characterMaximumLength: null,
 		isNullable: 'NO',
 		columnDefault: 1,
+	},
+	{
+		columnName: 'year',
+		dataType: 'year',
+		columnType: 'year(4) unsigned',
+		numericPrecision: null,
+		numericScale: 0,
+		characterMaximumLength: null,
+		isNullable: 'NO',
+		columnDefault: '0000',
 	},
 	{
 		columnName: 'updated_at',

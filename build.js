@@ -14,6 +14,7 @@ const maxIntValues = {
 	mediumint: 16777215,
 	int: 4294967295,
 	bigint: 18446744073709551615,
+	year: 4,
 }
 
 //const getSignedValue = num => (num - 1) / 2
@@ -95,12 +96,31 @@ const checks = [
 
 	defaultCheck = column => {
 		if (column.columnDefault !== null && !dateTimeTypes.includes(column.dataType)) {
-			if ([ ...stringTypes, 'enum' ].includes(column.dataType)) {
-				return `.default('${column.columnDefault}')`
+			let columnDefault = column.columnDefault
+
+			//number
+			if (maxIntValues[column.dataType]) {
+				columnDefault = parseInt(column.columnDefault, 10)
 			}
 
-			return `.default(${column.columnDefault})`
+			//string
+			if ([ ...stringTypes, 'enum' ].includes(column.dataType)) {
+				//quote as a string
+				columnDefault = `'${columnDefault}'`
+			}
+
+			///boolean
+			if (columnDefault && column.dataType === `bit` && column.numericPrecision == `1`) {
+				if (`${columnDefault}`.indexOf('1') > -1) {
+					return `.default(1)`
+				} else if (columnDefault.indexOf('0') > -1) {
+					return `.default(0)`
+				}
+			}
+
+			return `.default(${columnDefault})`
 		}
+
 		return ``
 	},
 ]

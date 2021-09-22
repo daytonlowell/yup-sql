@@ -32,6 +32,7 @@ const expected = `yup.object({
 	followUpDate: yup.date().nullable(true),
 	notes: yup.string().max(65535).ensure().nullable(false),
 	version: yup.number().integer().positive().max(4294967295).nullable(false).default(1),
+	year: yup.number().integer().positive().max(4).nullable(false).default(0),
 	updatedAt: yup.date().nullable(false),
 	isFinished: yup.string().oneOf(['False','True']).nullable(false),
 	myFloat: yup.number().nullable(false),
