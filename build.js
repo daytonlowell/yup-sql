@@ -17,7 +17,7 @@ const maxIntValues = {
 	year: 4,
 }
 
-//const getSignedValue = num => (num - 1) / 2
+const getSignedValue = num => (num - 1) / 2
 const decimalLessThan = precision => Math.pow(10, precision)
 const unrollEnum = col => col.columnType.match(/enum\((.+)\)/)[1]
 const dateTimeTypes = [ `datetime`, `date`, `timestamp` ]
@@ -30,11 +30,19 @@ const checks = [
 		if (maxIntValues[column.dataType]) {
 			checks += `.number().integer()`
 
-			if (column.columnType.indexOf(`unsigned`) > -1) {
+			let max = maxIntValues[column.dataType]
+			const isSigned = column.columnType.indexOf(`unsigned`) === -1
+			max = isSigned ? getSignedValue(max) : max
+
+			if (!isSigned) {
 				checks += `.positive()`
 			}
 
-			checks += `.max(${maxIntValues[column.dataType]})`
+			checks += `.max(${max})`
+
+			if (isSigned) {
+				checks += `.min(${-1 * (max + 1)})`
+			}
 		}
 
 		return checks

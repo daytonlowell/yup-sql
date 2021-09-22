@@ -22,7 +22,7 @@ const expected = `yup.object({
 	actualEngineeringHours: yup.number().lessThan(10000).nullable(true).default(0),
 	engineeringDueDate: yup.date().nullable(true),
 	printParts: yup.string().max(65535).nullable(true),
-	printQuantity: yup.number().integer().max(16777215).nullable(true).default(1),
+	printQuantity: yup.number().integer().max(8388607).min(-8388608).nullable(true).default(1),
 	printTimeHours: yup.number().lessThan(10000).nullable(true).default(0),
 	printDueDate: yup.date().nullable(true),
 	paymentReceived: yup.boolean().nullable(false).default(0),
