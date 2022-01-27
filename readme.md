@@ -30,14 +30,14 @@ Spits out something like:
 
 ```js
 yup.object({
-	projectId: yup.number().integer().positive().max(4294967295).nullable(false),
-	contactId: yup.number().integer().positive().max(4294967295).nullable(false),
+	projectId: yup.number().integer().min(0).max(4294967295).nullable(false),
+	contactId: yup.number().integer().min(0).max(4294967295).nullable(false),
 	dateCreated: yup.date().nullable(false),
-	engineerId: yup.number().integer().positive().max(4294967295).nullable(true),
+	engineerId: yup.number().integer().min(0).max(4294967295).nullable(true),
 	name: yup.string().max(200).nullable(false).default(''),
 	engineeringProject: yup.boolean().nullable(false).default(1),
 	printingProject: yup.boolean().nullable(false).default(1),
-	activeProjectStateId: yup.number().integer().positive().max(4294967295).nullable(false),
+	activeProjectStateId: yup.number().integer().min(0).max(4294967295).nullable(false),
 	startDate: yup.date().nullable(true),
 	done: yup.boolean().nullable(false).default(0),
 	doneDate: yup.date().nullable(true),
@@ -55,7 +55,7 @@ yup.object({
 	quoteDate: yup.date().nullable(true),
 	followUpDate: yup.date().nullable(true),
 	notes: yup.string().max(65535).ensure().nullable(false),
-	version: yup.number().integer().positive().max(4294967295).nullable(false).default(1),
+	version: yup.number().integer().min(0).max(4294967295).nullable(false).default(1),
 	updatedAt: yup.date().nullable(false),
 	isFinished: yup.string().oneOf(['False','True']).nullable(false)
 })

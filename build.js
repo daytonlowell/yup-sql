@@ -35,7 +35,7 @@ const checks = [
 			max = isSigned ? getSignedValue(max) : max
 
 			if (!isSigned) {
-				checks += `min(0)`
+				checks += `.min(0)`
 			}
 
 			checks += `.max(${max})`
