@@ -1,6 +1,6 @@
 {
 	"name": "yup-sql",
-	"version": "1.2.5",
+	"version": "2.0.0",
 	"description": "Create Yup validation code for MySQL databases",
 	"main": "index.js",
 	"scripts": {
