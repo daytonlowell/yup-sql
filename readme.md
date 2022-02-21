@@ -14,6 +14,8 @@ npm install yup-sql
 
 (`npm install -g yup-sql` if you want to use it from the command-line)
 
+The only "breaking" change from 1.x to 2.x is that support for versions of node older than 12 was dropped.
+
 ## Usage
 
 ### CLI
